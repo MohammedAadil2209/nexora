@@ -960,6 +960,8 @@ code {
 }
 .founder-image-wrapper {
     position: relative;
+    width: 100%;
+    display: block;
     border-radius: 24px;
     padding-bottom: 125%;
     overflow: hidden;
@@ -1211,8 +1213,10 @@ code {
     }
     
     .founder-image-wrapper {
-        max-width: 500px;
-        margin: 0 auto;
+        max-width: 450px;
+        width: 100%;
+        display: block;
+        margin: 0 auto 2rem;
     }
     
     .pricing-grid {
