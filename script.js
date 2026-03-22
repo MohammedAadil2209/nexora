@@ -170,12 +170,42 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
             btn.disabled = true;
 
-            // Simulate form submission
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const type = document.getElementById('type').value;
+            const msg = document.getElementById('project').value;
+
+            const text = `Hi Nexora!\nI want to send a project inquiry and book a consultation.\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone/WhatsApp:* ${phone}\n*Project Type:* ${type}\n*Message:* ${msg}`;
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://wa.me/919976939641?text=${encodedText}`;
+
+            // Invisible background email sending
+            fetch("https://formsubmit.co/ajax/nexora.devstudio@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: "🔥 New Website Lead!",
+                    Name: name,
+                    Email: email,
+                    Phone: phone,
+                    ProjectType: type,
+                    Message: msg
+                })
+            }).catch(error => console.log(error));
+
+            // Simulate form submission visual feedback
             setTimeout(() => {
-                btn.innerHTML = 'Message Sent! <i class="fa-solid fa-check"></i>';
+                btn.innerHTML = 'Request Sent! <i class="fa-solid fa-check"></i>';
                 btn.classList.replace('btn-primary', 'btn-secondary');
                 btn.style.borderColor = 'var(--highlight)';
                 btn.style.color = 'var(--highlight)';
+                
+                // Redirect exactly to the user specification
+                window.open(whatsappUrl, '_blank');
                 contactForm.reset();
 
                 setTimeout(() => {
@@ -184,7 +214,76 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.classList.replace('btn-secondary', 'btn-primary');
                     btn.removeAttribute('style');
                 }, 3000);
-            }, 1000);
+            }, 800);
         });
     }
+
+    // 8. Animated Counters
+    const counters = document.querySelectorAll('.stat-count');
+    const counterObserverOptions = {
+        threshold: 0.5
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const endValue = parseInt(target.getAttribute('data-target'));
+                const duration = 2000;
+                
+                let suffix = '';
+                if (endValue === 10) suffix = '+';
+                if (endValue === 20) suffix = '+';
+                if (endValue === 100) suffix = '%';
+
+                let startValue = 0;
+                let startTime = null;
+
+                const animate = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    
+                    const currentValue = Math.floor(progress * endValue);
+                    target.textContent = currentValue + suffix;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        target.textContent = endValue + suffix;
+                    }
+                };
+                
+                requestAnimationFrame(animate);
+                observer.unobserve(target);
+            }
+        });
+    }, counterObserverOptions);
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+
+    // 9. FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            faqItems.forEach(faq => {
+                faq.classList.remove('active');
+                faq.querySelector('.faq-answer').style.maxHeight = null;
+            });
+            
+            // Open clicked if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+                const answer = item.querySelector('.faq-answer');
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+        });
+    });
+
+
 });

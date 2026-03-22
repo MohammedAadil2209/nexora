@@ -1,27 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nexora - Neo Developer Studio</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Nexora is a modern web design studio building high-converting, modern, and performant websites that help businesses grow online.">
-    <meta name="keywords" content="web design, frontend development, modern websites, UI/UX, business websites, conversion-focused">
-    <meta name="author" content="Nexora">
+    <meta
+      name="description"
+      content="Nexora is a modern web design studio building high-converting, modern, and performant websites that help businesses grow online."
+    />
+    <meta
+      name="keywords"
+      content="web design, frontend development, modern websites, UI/UX, business websites, conversion-focused"
+    />
+    <meta name="author" content="Nexora" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- Custom Cursor -->
     <div class="cursor-glow"></div>
 
@@ -30,24 +42,26 @@
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <span class="code-bracket">&lt;</span>
-                Nexora
-                <span class="code-bracket">/&gt;</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#contact" class="nav-link btn-contact">Get in Touch</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <span class="code-bracket">&lt;</span>
+          Nexora
+          <span class="code-bracket">/&gt;</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li>
+            <a href="#contact" class="nav-link btn-contact">Get in Touch</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      </div>
     </nav>
 
     <!-- Page Transition Overlay -->
@@ -55,327 +69,735 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-bg-grid"></div>
-        <div class="hero-particles" id="particles-js"></div>
-        <div class="container hero-content">
-            <div class="dev-tag glass-panel fade-in-up">
-                <code>&lt; Web Designer & Developer /&gt;</code>
-            </div>
-            
-            <h1 class="hero-title fw-bold text-reveal">
-                Building Websites That <span class="text-gradient">Convert</span>,<br> Not Just Look Good.
-            </h1>
-            
-            <p class="hero-subtitle text-reveal-delay">
-                Nexora helps businesses grow with modern, high-performing websites.
-            </p>
-            
-            <div class="hero-ctas fade-in-up animate-delay-2">
-                <a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-            </div>
+      <div class="hero-bg-grid"></div>
+      <div class="hero-particles" id="particles-js"></div>
+      <div class="container hero-content">
+        <div class="dev-tag glass-panel fade-in-up">
+          <code>&lt; Web Designer & Developer /&gt;</code>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
+
+        <h1 class="hero-title fw-bold text-reveal">
+          Building Websites That
+          <span class="text-gradient">Convert</span>,<br />
+          Not Just Look Good.
+        </h1>
+
+        <p class="hero-subtitle text-reveal-delay">
+          Nexora helps businesses grow with modern, high-performing websites.
+        </p>
+
+        <div class="hero-ctas fade-in-up animate-delay-2">
+          <a href="#projects" class="btn btn-primary"
+            >View Projects <i class="fa-solid fa-arrow-right"></i
+          ></a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse"></div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section class="about section-padding" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text fade-in-left">
-                    <div class="section-tag"><code>&lt;about /&gt;</code></div>
-                    <h2 class="section-title">Design Meets <span class="text-gradient-alt">Logic</span></h2>
-                    <p class="lead">
-                        I build clean, high-converting websites that help businesses stand out and grow online. Combining design and development, I focus on both user experience and real results.
-                    </p>
-                    
-                    <div class="terminal-box">
-                        <div class="terminal-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="terminal-title">nexora:~ git status</span>
-                        </div>
-                        <div class="terminal-body">
-                            <p><code><span class="cyan">➜</span> <span class="green">nexora</span> <span class="cyan">git:(</span><span class="red">main</span><span class="cyan">)</span> ✗ npm run build</code></p>
-                            <p><code>> nexora-studio@1.0.0 build</code></p>
-                            <p><code>> Compiling premium assets...</code></p>
-                            <p><code><span class="green">✔</span> UI/UX Optimization complete.</code></p>
-                            <p><code><span class="green">✔</span> Conversion metrics maximized.</code></p>
-                            <p class="blinking-cursor"><code>_</code></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-stats fade-in-right">
-                    <div class="stat-card glass-panel">
-                        <h3 class="stat-number text-gradient">100%</h3>
-                        <p class="stat-label">Value Delivery</p>
-                    </div>
-                    <div class="stat-card glass-panel">
-                        <h3 class="stat-number text-gradient-alt">0</h3>
-                        <p class="stat-label">Bullshit Metrics</p>
-                    </div>
-                    <div class="stat-card glass-panel" style="grid-column: span 2;">
-                        <h3 class="stat-number" style="color: var(--highlight);">∞</h3>
-                        <p class="stat-label">Lines of Code Written</p>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text fade-in-left">
+            <div class="section-tag"><code>&lt;about /&gt;</code></div>
+            <h2 class="section-title">
+              Design Meets <span class="text-gradient-alt">Logic</span>
+            </h2>
+            <p class="lead">
+              I build clean, high-converting websites that help businesses stand
+              out and grow online. Combining design and development, I focus on
+              both user experience and real results.
+            </p>
+
+            <div class="terminal-box">
+              <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">nexora:~ git status</span>
+              </div>
+              <div class="terminal-body">
+                <p>
+                  <code
+                    ><span class="cyan">➜</span>
+                    <span class="green">nexora</span>
+                    <span class="cyan">git:(</span><span class="red">main</span
+                    ><span class="cyan">)</span> ✗ npm run build</code
+                  >
+                </p>
+                <p><code>> nexora-studio@1.0.0 build</code></p>
+                <p><code>> Compiling premium assets...</code></p>
+                <p>
+                  <code
+                    ><span class="green">✔</span> UI/UX Optimization
+                    complete.</code
+                  >
+                </p>
+                <p>
+                  <code
+                    ><span class="green">✔</span> Conversion metrics
+                    maximized.</code
+                  >
+                </p>
+                <p class="blinking-cursor"><code>_</code></p>
+              </div>
             </div>
+          </div>
+
+          <div class="about-stats fade-in-right">
+            <div class="stat-card glass-panel">
+              <h3 class="stat-number text-gradient">100%</h3>
+              <p class="stat-label">Value Delivery</p>
+            </div>
+            <div class="stat-card glass-panel">
+              <h3 class="stat-number text-gradient-alt">0</h3>
+              <p class="stat-label">Bullshit Metrics</p>
+            </div>
+            <div class="stat-card glass-panel" style="grid-column: span 2">
+              <h3 class="stat-number" style="color: var(--highlight)">∞</h3>
+              <p class="stat-label">Lines of Code Written</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
     <section class="projects section-padding dark-bg" id="projects">
-        <div class="container">
-            <div class="section-header text-center fade-in-up">
-                <div class="section-tag mx-auto"><code>&lt;projects /&gt;</code></div>
-                <h2 class="section-title">Selected <span class="text-gradient">Work</span></h2>
-                <p class="section-subtitle">Real businesses, real results.</p>
-            </div>
-            
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card glass-panel fade-in-up">
-                    <div class="project-image-wrapper">
-                        <!-- Placeholder for screenshot, we'll use a CSS gradient as placeholder -->
-                        <div class="project-img placeholder-1">
-                            <div class="overlay-brand">The Long Story</div>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="#" class="btn btn-primary btn-sm">View Live <i class="fa-solid fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">#DarkLuxury</span>
-                            <span class="tag">#RestoBar</span>
-                        </div>
-                        <h3 class="project-title">The Long Story</h3>
-                        <p class="project-desc">A premium, high-converting digital experience designed for a luxury restobar, increasing table reservations and customer interactions.</p>
-                        <div class="code-snippet-small">
-                            <code><span class="purple">import</span> { Luxury } <span class="purple">from</span> 'experience';</code>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card glass-panel fade-in-up animate-delay-1">
-                    <div class="project-image-wrapper">
-                        <div class="project-img placeholder-2">
-                             <div class="overlay-brand text-dark">The Space Hangout</div>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="#" class="btn btn-primary btn-sm">View Live <i class="fa-solid fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="tag">#Minimal</span>
-                            <span class="tag">#Cafe</span>
-                        </div>
-                        <h3 class="project-title">The Space</h3>
-                        <p class="project-desc">A calm, aesthetic presence for a family-friendly cafe. Features modern minimal design focused on driving dine-in visits.</p>
-                        <div class="code-snippet-small">
-                            <code><span class="purple">const</span> <span class="cyan">vibe</span> = <span class="green">'aesthetic'</span>;</code>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header text-center fade-in-up">
+          <div class="section-tag mx-auto"><code>&lt;projects /&gt;</code></div>
+          <h2 class="section-title">
+            Selected <span class="text-gradient">Work</span>
+          </h2>
+          <p class="section-subtitle">Real businesses, real results.</p>
         </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card glass-panel fade-in-up">
+            <div class="project-image-wrapper">
+              <!-- Placeholder for screenshot, we'll use a CSS gradient as placeholder -->
+              <div class="project-img placeholder-1">
+                <div class="overlay-brand">The Long Story</div>
+              </div>
+              <div class="project-overlay">
+                <a href="https://longstoryrestaurant.vercel.app/" class="btn btn-primary btn-sm"
+                  >View Live <i class="fa-solid fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag">#DarkLuxury</span>
+                <span class="tag">#RestoBar</span>
+              </div>
+              <h3 class="project-title">The Long Story</h3>
+              <p class="project-desc">
+                A premium, high-converting digital experience designed for a
+                luxury restobar, increasing table reservations and customer
+                interactions.
+              </p>
+              <div class="code-snippet-small">
+                <code
+                  ><span class="purple">import</span> { Luxury }
+                  <span class="purple">from</span> 'experience';</code
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card glass-panel fade-in-up animate-delay-1">
+            <div class="project-image-wrapper">
+              <div class="project-img placeholder-2">
+                <div class="overlay-brand text-dark">The Space Hangout</div>
+              </div>
+              <div class="project-overlay">
+                <a href="https://space-restaurant.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm"
+                  >View Live <i class="fa-solid fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag">#Minimal</span>
+                <span class="tag">#Cafe</span>
+              </div>
+              <h3 class="project-title">The Space</h3>
+              <p class="project-desc">
+                A calm, aesthetic presence for a family-friendly cafe. Features
+                modern minimal design focused on driving dine-in visits.
+              </p>
+              <div class="code-snippet-small">
+                <code
+                  ><span class="purple">const</span>
+                  <span class="cyan">vibe</span> =
+                  <span class="green">'aesthetic'</span>;</code
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card glass-panel fade-in-up animate-delay-2">
+            <div class="project-image-wrapper">
+              <div class="project-img" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+                <div class="overlay-brand" style="color: #60a5fa; font-family: var(--font-heading); font-size: 1.8rem; letter-spacing: 2px;">AR Associate</div>
+              </div>
+              <div class="project-overlay">
+                <a href="https://arassociate.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm"
+                  >View Live <i class="fa-solid fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="tag">#Corporate</span>
+                <span class="tag">#Enterprise</span>
+              </div>
+              <h3 class="project-title">AR Associate</h3>
+              <p class="project-desc">
+                A highly professional, robust digital platform engineered to build immediate business trust and clearly outline scaling services.
+              </p>
+              <div class="code-snippet-small">
+                <code
+                  ><span class="purple">export</span>
+                  <span class="cyan">class</span>
+                  <span class="green">Enterprise</span>;</code
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Services & Why Choose Us Section -->
     <section class="services-hybrid section-padding" id="services">
-        <div class="container">
-            <div class="hybrid-grid">
-                
-                <!-- Services -->
-                <div class="services-column fade-in-left">
-                    <div class="section-tag"><code>&lt;services /&gt;</code></div>
-                    <h2 class="section-title">What I <span class="text-gradient">Do</span></h2>
-                    
-                    <div class="services-list">
-                        <div class="service-card glass-panel interactive-hover">
-                            <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
-                            <div class="service-content">
-                                <h3>Website Design</h3>
-                                <p>Captivating, modern UI/UX that aligns with your brand identity.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card glass-panel interactive-hover">
-                            <div class="service-icon"><i class="fa-solid fa-code"></i></div>
-                            <div class="service-content">
-                                <h3>Frontend Development</h3>
-                                <p>Responsive, performant, and interactive code built to modern standards.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card glass-panel interactive-hover">
-                            <div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
-                            <div class="service-content">
-                                <h3>Business Website Setup</h3>
-                                <p>End-to-end delivery of websites meant to establish your digital footprint.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card glass-panel interactive-hover">
-                            <div class="service-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                            <div class="service-content">
-                                <h3>WhatsApp Booking Integration</h3>
-                                <p>Direct conversion funnels routing customers straight to your WhatsApp.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="hybrid-grid">
+          <!-- Services -->
+          <div class="services-column fade-in-left">
+            <div class="section-tag"><code>&lt;services /&gt;</code></div>
+            <h2 class="section-title">
+              What I <span class="text-gradient">Do</span>
+            </h2>
 
-                <!-- Why Choose Us -->
-                <div class="why-us-column fade-in-right">
-                    <div class="section-tag"><code>&lt;solution /&gt;</code></div>
-                    <h2 class="section-title">Why Choose <span class="text-gradient">Nexora</span></h2>
-                    
-                    <div class="features-grid">
-                        <div class="feature-box">
-                            <div class="feature-header">
-                                <i class="fa-solid fa-layer-group text-purple"></i>
-                                <h4>Modern UI/UX</h4>
-                            </div>
-                            <p>Design that feels premium and builds trust instantly.</p>
-                        </div>
-                        
-                        <div class="feature-box">
-                            <div class="feature-header">
-                                <i class="fa-solid fa-mobile-screen-button text-cyan"></i>
-                                <h4>Mobile-First Design</h4>
-                            </div>
-                            <p>Flawless experience on every device, optimized for where most traffic happens.</p>
-                        </div>
-                        
-                        <div class="feature-box">
-                            <div class="feature-header">
-                                <i class="fa-solid fa-chart-line text-green"></i>
-                                <h4>Conversion-Focused</h4>
-                            </div>
-                            <p>Strategic layouts that turn visitors into paying customers.</p>
-                        </div>
-                        
-                        <div class="feature-box">
-                            <div class="feature-header">
-                                <i class="fa-solid fa-bolt text-purple"></i>
-                                <h4>Fast & Responsive</h4>
-                            </div>
-                            <p>Lightning-fast load times for better SEO and user retention.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="code-block glass-panel mt-4">
-                        <pre><code><span class="purple">if</span> (project.needsBoost) {
+            <div class="services-list">
+              <div class="service-card glass-panel interactive-hover">
+                <div class="service-icon">
+                  <i class="fa-solid fa-pen-nib"></i>
+                </div>
+                <div class="service-content">
+                  <h3>Website Design</h3>
+                  <p>
+                    Captivating, modern UI/UX that aligns with your brand
+                    identity.
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-card glass-panel interactive-hover">
+                <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="service-content">
+                  <h3>Frontend Development</h3>
+                  <p>
+                    Responsive, performant, and interactive code built to modern
+                    standards.
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-card glass-panel interactive-hover">
+                <div class="service-icon">
+                  <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="service-content">
+                  <h3>Business Website Setup</h3>
+                  <p>
+                    End-to-end delivery of websites meant to establish your
+                    digital footprint.
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-card glass-panel interactive-hover">
+                <div class="service-icon">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="service-content">
+                  <h3>WhatsApp Booking Integration</h3>
+                  <p>
+                    Direct conversion funnels routing customers straight to your
+                    WhatsApp.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Why Choose Us -->
+          <div class="why-us-column fade-in-right">
+            <div class="section-tag"><code>&lt;solution /&gt;</code></div>
+            <h2 class="section-title">
+              Why Choose <span class="text-gradient">Nexora</span>
+            </h2>
+
+            <div class="features-grid">
+              <div class="feature-box">
+                <div class="feature-header">
+                  <i class="fa-solid fa-layer-group text-purple"></i>
+                  <h4>Modern UI/UX</h4>
+                </div>
+                <p>Design that feels premium and builds trust instantly.</p>
+              </div>
+
+              <div class="feature-box">
+                <div class="feature-header">
+                  <i class="fa-solid fa-mobile-screen-button text-cyan"></i>
+                  <h4>Mobile-First Design</h4>
+                </div>
+                <p>
+                  Flawless experience on every device, optimized for where most
+                  traffic happens.
+                </p>
+              </div>
+
+              <div class="feature-box">
+                <div class="feature-header">
+                  <i class="fa-solid fa-chart-line text-green"></i>
+                  <h4>Conversion-Focused</h4>
+                </div>
+                <p>
+                  Strategic layouts that turn visitors into paying customers.
+                </p>
+              </div>
+
+              <div class="feature-box">
+                <div class="feature-header">
+                  <i class="fa-solid fa-bolt text-purple"></i>
+                  <h4>Fast & Responsive</h4>
+                </div>
+                <p>
+                  Lightning-fast load times for better SEO and user retention.
+                </p>
+              </div>
+            </div>
+
+            <div class="code-block glass-panel mt-4">
+              <pre><code><span class="purple">if</span> (project.needsBoost) {
   <span class="cyan">nexora</span>.<span class="yellow">initialize</span>({
     <span class="blue">speed</span>: <span class="green">'fast'</span>,
     <span class="blue">design</span>: <span class="green">'premium'</span>,
     <span class="blue">conversions</span>: <span class="purple">true</span>
   });
 }</code></pre>
-                    </div>
-                </div>
-                
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact section-padding dark-bg relative-overflow" id="contact">
-        <!-- Decoration -->
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
-        
-        <div class="container">
-            <div class="contact-wrapper glass-panel fade-in-up">
-                <div class="contact-info">
-                    <div class="section-tag"><code>&lt;client /&gt;</code></div>
-                    <h2 class="section-title">Let’s Build Something <span class="text-gradient">Great</span></h2>
-                    <p class="contact-desc">Ready to elevate your digital presence? Send a message to discuss your next big project.</p>
-                    
-                    <div class="contact-methods">
-                        <a href="mailto:nexora.devstudio@gmail.com" class="contact-method-card">
-                            <div class="icon-box email"><i class="fa-solid fa-envelope"></i></div>
-                            <div>
-                                <h4>Email</h4>
-                                <span>nexora.devstudio@gmail.com</span>
-                            </div>
-                        </a>
-
-                        <div class="contact-method-card phone-card">
-                            <div class="icon-box whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
-                            <div class="phone-details">
-                                <h4>+91 94865 02203</h4>
-                                <div class="phone-actions">
-                                    <a href="https://wa.me/919486502203" target="_blank" rel="noopener" class="text-green hover-glow">WhatsApp</a>
-                                    <span class="text-muted mx-2">|</span>
-                                    <a href="tel:+919486502203" class="text-cyan hover-glow">Call</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contact-method-card phone-card">
-                            <div class="icon-box whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
-                            <div class="phone-details">
-                                <h4>+91 99769 39641</h4>
-                                <div class="phone-actions">
-                                    <a href="https://wa.me/919976939641" target="_blank" rel="noopener" class="text-green hover-glow">WhatsApp</a>
-                                    <span class="text-muted mx-2">|</span>
-                                    <a href="tel:+919976939641" class="text-cyan hover-glow">Call</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name <code>*</code></label>
-                            <input type="text" id="name" class="form-control" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email <code>*</code></label>
-                            <input type="email" id="email" class="form-control" placeholder="john@company.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="project">Project Details</label>
-                            <textarea id="project" class="form-control" rows="4" placeholder="Tell me about your vision..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">
-                            Send Message <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <!-- Results / Stats Section -->
+    <section class="results section-padding dark-bg" id="results">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item fade-in-up">
+            <h3 class="stat-count text-gradient" data-target="10">0</h3>
+            <p class="stat-text">Websites Built</p>
+          </div>
+          <div class="stat-item fade-in-up animate-delay-1">
+            <h3 class="stat-count text-gradient-alt" data-target="100">0</h3>
+            <p class="stat-text">Client Satisfaction %</p>
+          </div>
+          <div class="stat-item fade-in-up animate-delay-2">
+            <h3 class="stat-count text-green" data-target="5">0</h3>
+            <p class="stat-text">Days Delivery (Avg)</p>
+          </div>
+          <div class="stat-item fade-in-up animate-delay-3">
+            <h3 class="stat-count text-purple" data-target="100">0</h3>
+            <p class="stat-text">Modern Designs %</p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- About the Founder Section -->
+    <section class="founder section-padding" id="founder">
+      <div class="container">
+        <div class="founder-grid">
+          <div class="founder-image-wrapper fade-in-left">
+            <img src="founder.jpg" alt="Mohammed Aadil" class="founder-img" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
+            
+            <!-- Premium Glass Layout -->
+            <div class="founder-overlay-imprint" style="position: absolute; top: 1.5rem; left: 1.5rem; right: 1.5rem; pointer-events: none; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem;">
+              
+              <!-- Online Status Pill -->
+              <div style="background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 100px; padding: 0.4rem 1.2rem; display: inline-flex; align-items: center; gap: 0.6rem; box-shadow: 0 8px 25px rgba(0,0,0,0.3);">
+                <span style="width: 8px; height: 8px; background-color: #4ade80; border-radius: 50%; box-shadow: 0 0 10px #4ade80;"></span>
+                <span style="color: #f8fafc; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;">Founder & Student</span>
+              </div>
+              
+              <!-- Identity Card -->
+              <div style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 1rem 1.4rem; box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
+                <h3 style="color: #ffffff; font-family: var(--font-heading); font-size: 1.7rem; margin: 0 0 0.3rem 0; letter-spacing: -0.5px;">Mohammed Aadil</h3>
+                <div style="color: #e2e8f0; font-size: 0.95rem; margin: 0; display: flex; align-items: center; gap: 0.6rem;">
+                  <span>20 years old</span>
+                  <span style="color: var(--highlight); font-size: 0.8rem;">&bull;</span>
+                  <span>India</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="founder-content fade-in-right">
+            <div class="section-tag"><code>&lt;founder /&gt;</code></div>
+            <h2 class="section-title">Meet <span class="text-gradient">Mohammed Aadil</span></h2>
+            <div class="founded-badge mb-4" style="display: inline-flex; align-items: center; gap: 0.7rem; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); padding: 0.6rem 1.4rem; border-radius: 100px; color: #ffffff; font-size: 1.1rem; font-weight: 500; margin-top: -0.2rem; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.1);">
+              <i class="fa-solid fa-rocket text-cyan" style="font-size: 1.2rem;"></i> <span>Agency Founded: <strong style="color: var(--highlight); font-family: var(--font-heading); font-size: 1.15rem; letter-spacing: 0.5px;">March 18, 2026</strong></span>
+            </div>
+            <p class="founder-bio">
+              Mohammed Aadil is the founder of Nexora Devstudio and a passionate web developer dedicated to building modern, high-performing websites for businesses. Alongside being a student, he actively works with clients to help them establish a strong online presence and grow their business.
+            </p>
+            <p class="founder-bio mt-3">
+              With a focus on clean design, performance, and user experience, Aadil ensures every project is crafted to deliver real results — not just looks.
+            </p>
+            <p class="founder-bio fw-bold mt-4 text-gradient-alt">
+              "My mission is simple: help businesses turn their ideas into powerful digital experiences."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing section-padding dark-bg" id="pricing">
+      <div class="container">
+        <div class="section-header text-center fade-in-up">
+          <div class="section-tag mx-auto"><code>&lt;pricing /&gt;</code></div>
+          <h2 class="section-title">Simple, <span class="text-gradient">Transparent</span> Pricing</h2>
+          <p class="section-subtitle">Choose the perfect plan to grow your business.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter Plan -->
+          <div class="pricing-card glass-panel fade-in-up">
+            <div class="pricing-header">
+              <h3>Starter</h3>
+              <div class="price"><span class="currency">₹</span>2,999</div>
+              <p class="plan-desc">For small shops (easy to close).</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check text-green"></i> 1–2 pages</li>
+              <li><i class="fa-solid fa-check text-green"></i> Mobile responsive</li>
+              <li><i class="fa-solid fa-check text-green"></i> WhatsApp button</li>
+              <li><i class="fa-solid fa-check text-green"></i> Contact form</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary w-100 mt-4 plan-btn">Select Starter</a>
+          </div>
+
+          <!-- Business Plan -->
+          <div class="pricing-card glass-panel popular-plan fade-in-up animate-delay-1">
+            <div class="popular-badge">Most Popular</div>
+            <div class="pricing-header">
+              <h3>Business</h3>
+              <div class="price text-gradient"><span class="currency">₹</span>6,999</div>
+              <p class="plan-desc">Your main selling plan.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check text-primary"></i> 3–5 pages</li>
+              <li><i class="fa-solid fa-check text-primary"></i> Premium design</li>
+              <li><i class="fa-solid fa-check text-primary"></i> WhatsApp + Call</li>
+              <li><i class="fa-solid fa-check text-primary"></i> Basic animations</li>
+              <li><i class="fa-solid fa-check text-primary"></i> Google Maps</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-100 mt-4 plan-btn">Get Started</a>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="pricing-card glass-panel fade-in-up animate-delay-2">
+            <div class="pricing-header">
+              <h3>Premium</h3>
+              <div class="price"><span class="currency">₹</span>12,999</div>
+              <p class="plan-desc">For serious clients.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check text-purple"></i> Full custom website</li>
+              <li><i class="fa-solid fa-check text-purple"></i> Advanced UI</li>
+              <li><i class="fa-solid fa-check text-purple"></i> Booking/contact system</li>
+              <li><i class="fa-solid fa-check text-purple"></i> Animations</li>
+              <li><i class="fa-solid fa-check text-purple"></i> Priority support</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary w-100 mt-4 plan-btn">Select Premium</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding" id="testimonials">
+      <div class="container">
+        <div class="section-header text-center fade-in-up">
+          <div class="section-tag mx-auto"><code>&lt;reviews /&gt;</code></div>
+          <h2 class="section-title">Client <span class="text-gradient-alt">Success</span></h2>
+        </div>
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card glass-panel fade-in-up">
+            <div class="stars" style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+              <i class="fa-solid fa-star text-yellow"></i><i class="fa-solid fa-star text-yellow"></i><i class="fa-solid fa-star text-yellow"></i><i class="fa-solid fa-star text-yellow"></i><i class="fa-solid fa-star text-yellow"></i>
+            </div>
+            <p class="review-text" style="font-size: 1.25rem; line-height: 1.8;">"Nexora delivered exactly what we needed and we like it very much. The end result is incredibly impressive, and they came up with very good ideas and put immense effort into building a premium digital experience for our restaurant. Highly recommended!"</p>
+            <div class="client-info">
+              <h4 style="font-size: 1.25rem;">Management Team</h4>
+              <span style="font-size: 1rem; color: var(--highlight);">The Long Story (Restobar)</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card glass-panel fade-in-up animate-delay-1">
+            <div class="stars" style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+              <i class="fa-solid fa-star text-yellow"></i><i class="fa-solid fa-star text-yellow"></i><i class="fa-solid fa-star text-yellow"></i><i class="fa-solid fa-star text-yellow"></i><i class="fa-solid fa-star text-yellow"></i>
+            </div>
+            <p class="review-text" style="font-size: 1.25rem; line-height: 1.8;">"An absolute game-changer. Nexora built a robust, highly professional digital platform that instantly builds trust with our clients. Their attention to detail and ability to execute our vision resulted in complete customer satisfaction!"</p>
+            <div class="client-info">
+              <h4 style="font-size: 1.25rem;">Afroze</h4>
+              <span style="font-size: 1rem; color: var(--highlight);">AR Associate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section-padding dark-bg" id="faq">
+      <div class="container">
+        <div class="section-header text-center fade-in-up">
+          <div class="section-tag mx-auto"><code>&lt;faq /&gt;</code></div>
+          <h2 class="section-title">Common <span class="text-gradient">Questions</span></h2>
+        </div>
+        <div class="faq-container fade-in-up">
+          <div class="faq-item">
+            <button class="faq-question">How long does it take? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer">
+              <p>Delivery time depends on the package you choose. Starter takes 2-3 days, Business takes 4-6 days, and Premium takes around 7-10 days.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you provide hosting? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer">
+              <p>Yes, we can assist with hosting setup on platforms like Vercel, Netlify, or traditional Linux hosts depending on your needs. Basic deployment is often included.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can I update the website later? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer">
+              <p>Absolutely. If needed, we can build the site with a CMS so you can easily edit text and images without touching any code.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you provide support after launch? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-answer">
+              <p>Yes! Our Premium plan includes priority support, but we are always available to help all our clients with any bugs or updates needed after the website is live.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strong CTA Section -->
+    <section class="strong-cta section-padding dark-bg text-center" id="final-cta">
+      <div class="container fade-in-up">
+        <h2 class="cta-headline">Ready to Grow Your Business <span class="text-gradient">Online?</span></h2>
+        <p class="cta-subtext mx-auto mt-3">Let Nexora Devstudio build a website that brings real customers.</p>
+        <div class="cta-buttons mt-4">
+          <a href="#projects" class="btn btn-primary">Start Project</a>
+          <a href="https://wa.me/919486502203" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-whatsapp mr-2"></i> Contact on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Combined Contact & Booking Section -->
+    <section
+      class="contact section-padding dark-bg relative-overflow"
+      id="contact"
+    >
+      <!-- Decoration -->
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+
+      <div class="container">
+        <div class="contact-wrapper glass-panel fade-in-up">
+          <div class="contact-info">
+            <div class="section-tag"><code>&lt;consultation /&gt;</code></div>
+            <h2 class="section-title">
+              Let’s Build Something <span class="text-gradient">Great</span>
+            </h2>
+            <p class="contact-desc">
+              Ready to elevate your digital presence? Send a message to discuss
+              your next big project or book a free consultation call.
+            </p>
+
+            <div class="contact-methods">
+              <a
+                href="mailto:nexora.devstudio@gmail.com"
+                class="contact-method-card"
+              >
+                <div class="icon-box email">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h4>Email</h4>
+                  <span>nexora.devstudio@gmail.com</span>
+                </div>
+              </a>
+
+              <div class="contact-method-card phone-card">
+                <div class="icon-box whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="phone-details">
+                  <h4>+91 94865 02203</h4>
+                  <div class="phone-actions">
+                    <a
+                      href="https://wa.me/919486502203"
+                      target="_blank"
+                      rel="noopener"
+                      class="text-green hover-glow"
+                      >WhatsApp</a
+                    >
+                    <span class="text-muted mx-2">|</span>
+                    <a href="tel:+919486502203" class="text-cyan hover-glow"
+                      >Call</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-method-card phone-card">
+                <div class="icon-box whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="phone-details">
+                  <h4>+91 99769 39641</h4>
+                  <div class="phone-actions">
+                    <a
+                      href="https://wa.me/919976939641"
+                      target="_blank"
+                      rel="noopener"
+                      class="text-green hover-glow"
+                      >WhatsApp</a
+                    >
+                    <span class="text-muted mx-2">|</span>
+                    <a href="tel:+919976939641" class="text-cyan hover-glow"
+                      >Call</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Name <code>*</code></label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                  <label for="email">Email <code>*</code></label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="john@company.com"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="phone">Phone / WhatsApp <code>*</code></label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="form-control"
+                    placeholder="+91 00000 00000"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="type">Project Type <code>*</code></label>
+                <select id="type" class="form-control select-dark" required>
+                  <option value="" disabled selected>Select Project Type</option>
+                  <option value="Starter">Starter (₹2,999)</option>
+                  <option value="Business">Business (₹6,999)</option>
+                  <option value="Premium">Premium (₹12,999)</option>
+                  <option value="Other">Custom / Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="project">Message</label>
+                <textarea
+                  id="project"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Tell me about your vision..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Send Request & Book Call <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container text-center">
-            <a href="#" class="logo d-inline-block">
-                <span class="code-bracket">&lt;</span>Nexora<span class="code-bracket">/&gt;</span>
-            </a>
-            <p class="mt-3 text-muted">A developer who understands business + design.</p>
-            <div class="social-links mt-4">
-                <a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-            <p class="copyright mt-4 text-xs"><code>&copy; 2026 Nexora Studio. All rights reserved.</code></p>
+      <div class="container text-center">
+        <a href="#" class="logo d-inline-block">
+          <span class="code-bracket">&lt;</span>Nexora<span class="code-bracket"
+            >/&gt;</span
+          >
+        </a>
+        <p class="mt-3 text-muted">
+          A developer who understands business + design.
+        </p>
+        <div class="social-links mt-4">
+          <a href="https://github.com/dashboard" aria-label="Github"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/mohammed-aadil-049b29322/"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a href="#" aria-label="Twitter"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
         </div>
+        <p class="copyright mt-4 text-xs">
+          <code>&copy; 2026 Nexora Studio. All rights reserved.</code>
+        </p>
+      </div>
     </footer>
 
     <!-- Particles.js (Lightweight) -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Custom Script -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
