@@ -30,6 +30,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
+    <!-- GSAP Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -52,8 +56,9 @@
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#visiting-card" class="nav-link">ID Card</a></li>
           <li>
-            <a href="#contact" class="nav-link btn-contact">Get in Touch</a>
+            <a href="#contact" class="nav-link btn-contact">Consultation</a>
           </li>
         </ul>
         <div class="hamburger">
@@ -72,7 +77,7 @@
       <div class="hero-bg-grid"></div>
       <div class="hero-particles" id="particles-js"></div>
       <div class="container hero-content">
-        <div class="dev-tag glass-panel fade-in-up">
+        <div class="dev-tag glass-panel">
           <code>&lt; Web Designer & Developer /&gt;</code>
         </div>
 
@@ -86,7 +91,7 @@
           Nexora helps businesses grow with modern, high-performing websites.
         </p>
 
-        <div class="hero-ctas fade-in-up animate-delay-2">
+        <div class="hero-ctas">
           <a href="#projects" class="btn btn-primary"
             >View Projects <i class="fa-solid fa-arrow-right"></i
           ></a>
@@ -841,6 +846,62 @@
               </button>
             </form>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Visiting Card Section -->
+    <section class="visiting-card-section section-padding dark-bg" id="visiting-card">
+      <div class="container">
+        <div class="section-header text-center fade-in-up">
+          <div class="section-tag mx-auto"><code>&lt;identity /&gt;</code></div>
+          <h2 class="section-title">Scan & <span class="text-gradient">Connect</span></h2>
+          <p class="section-subtitle">My professional digital imprint. Interactive & Premium.</p>
+        </div>
+
+        <div class="card-3d-container fade-in-up">
+            <div class="business-card-3d" id="businessCard">
+                <div class="card-glare"></div>
+                <!-- Front Face -->
+                <div class="card-face card-front">
+                    <div class="card-header-row" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="card-logo">
+                            <span style="color: var(--primary);">&lt;</span>Nexora<span style="color: var(--primary);">/&gt;</span>
+                        </div>
+                        <div class="card-chip"></div>
+                    </div>
+                    <div class="card-footer-row" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <div class="card-holder">
+                            <div class="card-name">MOHAMMED AADIL</div>
+                            <div class="card-title">Founder & Lead Developer</div>
+                        </div>
+                        <div style="width: 60px; height: 60px; background: #fff; padding: 4px; border-radius: 6px; box-shadow: 0 0 15px rgba(255,255,255,0.1);">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nexora-devstudio.vercel.app/" alt="QR Code" style="width: 100%; height: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <!-- Back Face -->
+                <div class="card-face card-back">
+                    <div class="card-qr-container">
+                        <div class="card-qr" style="width: 150px; height: 150px;">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://nexora-devstudio.vercel.app/" alt="QR Code">
+                        </div>
+                        <div class="qr-label">SCAN TO OPEN PORTFOLIO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5 fade-in-up">
+            <p class="text-muted mb-4" style="font-size: 0.9rem; font-family: var(--font-code);">[ ! ] Hold and drag to rotate the card</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn btn-secondary btn-sm" onclick="flipCard()">
+                    Flip Card <i class="fa-solid fa-rotate"></i>
+                </button>
+                <a href="tel:+919486502203" class="btn btn-primary btn-sm">
+                    Direct Call <i class="fa-solid fa-phone"></i>
+                </a>
+            </div>
         </div>
       </div>
     </section>

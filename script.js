@@ -65,53 +65,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 5. Elite Animation Engine (GSAP + Lenis + ScrollTrigger)
+  // 5. Animation Engine (GSAP + ScrollTrigger — Native Scroll, no Lenis)
   if (
     typeof gsap !== "undefined" &&
-    typeof ScrollTrigger !== "undefined" &&
-    typeof Lenis !== "undefined"
+    typeof ScrollTrigger !== "undefined"
   ) {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Initialize Lenis Buttery Smooth Scroll (Inertia Physics)
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      mouseMultiplier: 1.2,
-      smoothTouch: false,
-      touchMultiplier: 2,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Sync GSAP with Lenis for tied frame rendering
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0, 0);
-
-    // --- Framer-Style Magnetic Buttons Physics --- //
-    const buttons = document.querySelectorAll(".btn, .bento-card, .project-card");
+    // --- Magnetic Buttons --- //
+    const buttons = document.querySelectorAll(
+      ".btn, .bento-card, .project-card",
+    );
     buttons.forEach((el) => {
       el.addEventListener("mousemove", (e) => {
-        const isBtn = el.classList.contains('btn');
+        const isBtn = el.classList.contains("btn");
         const rect = el.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
+
         if (isBtn) {
-            gsap.to(el, { x: x * 0.4, y: y * 0.4, duration: 0.6, ease: "power3.out" });
+          gsap.to(el, { x: x * 0.4, y: y * 0.4, duration: 0.6, ease: "power3.out" });
         } else {
-            // Framer 3D tilt for cards
-            gsap.to(el, { rotationY: x * 0.03, rotationX: -y * 0.03, transformPerspective: 1000, ease: "power2.out", duration: 0.5 });
+          gsap.to(el, { rotationY: x * 0.03, rotationX: -y * 0.03, transformPerspective: 1000, ease: "power2.out", duration: 0.5 });
         }
       });
       el.addEventListener("mouseleave", () => {
@@ -119,76 +94,56 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // --- Elite 3D Global Entry Animations --- //
+    // --- Scroll Fade Animations (exclude hero elements) --- //
     const fadeElements = gsap.utils.toArray(
       ".fade-in-up, .fade-in-left, .fade-in-right, .fade-in-scale",
-    );
+    ).filter(el => !el.closest('.hero'));
 
     fadeElements.forEach((element) => {
-      gsap.set(element, {
-        autoAlpha: 0,
-        y: 100,
-        rotationX: -10,
-        scale: 0.9,
-        transformPerspective: 2000,
-      });
+      gsap.set(element, { autoAlpha: 0, y: 60, scale: 0.95 });
 
       ScrollTrigger.create({
         trigger: element,
-        start: "top 85%",
+        start: "top 90%",
         onEnter: () =>
           gsap.to(element, {
-            autoAlpha: 1,
-            y: 0,
-            rotationX: 0,
-            scale: 1,
-            duration: 1.8,
-            ease: "expo.out", // Classic Framer fluid snap
-            overwrite: "auto",
+            autoAlpha: 1, y: 0, scale: 1,
+            duration: 1, ease: "power3.out", overwrite: "auto",
           }),
       });
     });
 
-    // --- Cinematic Hero Sequence --- //
-    const tlHero = gsap.timeline({ defaults: { ease: "expo.out" } });
-    tlHero
-      .from(".dev-tag, .section-tag", {
-        autoAlpha: 0,
-        y: 40,
-        duration: 1.5,
-        delay: 0.2,
-      })
-      .from(
-        ".hero-title, .section-title",
-        { autoAlpha: 0, y: 60, scale: 0.95, rotationX: -20, transformPerspective: 1000, duration: 1.8 },
-        "-=1.2",
-      )
-      .from(
-        ".hero-subtitle, .lead",
-        { autoAlpha: 0, y: 40, duration: 1.5 },
-        "-=1.4",
-      )
-      .from(
-        ".hero-ctas .btn",
-        { autoAlpha: 0, y: 30, duration: 1.2, stagger: 0.1 },
-        "-=1.2",
-      )
-      .from(".scroll-indicator", { autoAlpha: 0, duration: 1.5 }, "-=0.8");
+    // Hero uses pure CSS animations — no GSAP conflicts possible
 
     // --- Interactive Parallax Bento Triggers --- //
     const serverLayers = gsap.utils.toArray(".server-layer");
     if (serverLayers.length > 0) {
       gsap.to(serverLayers[0], {
         z: 40,
-        scrollTrigger: { trigger: ".bento-grid", start: "top bottom", end: "bottom top", scrub: 1 },
+        scrollTrigger: {
+          trigger: ".bento-grid",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
       });
       gsap.to(serverLayers[1], {
         z: 80,
-        scrollTrigger: { trigger: ".bento-grid", start: "top bottom", end: "bottom top", scrub: 1.5 },
+        scrollTrigger: {
+          trigger: ".bento-grid",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.5,
+        },
       });
       gsap.to(serverLayers[2], {
         z: 120,
-        scrollTrigger: { trigger: ".bento-grid", start: "top bottom", end: "bottom top", scrub: 2 },
+        scrollTrigger: {
+          trigger: ".bento-grid",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 2,
+        },
       });
     }
 
@@ -224,7 +179,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, observerOptions);
-    const animatedElements = document.querySelectorAll(".fade-in-up, .fade-in-left, .fade-in-right");
+    const animatedElements = document.querySelectorAll(
+      ".fade-in-up, .fade-in-left, .fade-in-right",
+    );
     animatedElements.forEach((el) => {
       scrollObserver.observe(el);
     });
@@ -432,4 +389,80 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // 10. Digital Visiting Card Interaction
+  const card = document.getElementById('businessCard');
+  if (card && typeof gsap !== 'undefined') {
+    const glare = card.querySelector('.card-glare');
+    let isFlipped = false;
+    let isDragging = false;
+    let startX, startY;
+    let currentRotationX = 0;
+    let currentRotationY = 0;
+
+    const startDragging = (e) => {
+        isDragging = true;
+        startX = (e.pageX || e.touches[0].pageX);
+        startY = (e.pageY || e.touches[0].pageY);
+        card.style.cursor = 'grabbing';
+    };
+
+    const handleDragging = (e) => {
+        if (!isDragging) return;
+        const x = (e.pageX || (e.touches ? e.touches[0].pageX : 0));
+        const y = (e.pageY || (e.touches ? e.touches[0].pageY : 0));
+        const deltaX = (x - startX) * 0.5;
+        const deltaY = (y - startY) * 0.5;
+        currentRotationY += deltaX;
+        currentRotationX -= deltaY;
+        gsap.set(card, {
+            rotationY: currentRotationY,
+            rotationX: gsap.utils.clamp(-60, 60, currentRotationX)
+        });
+        startX = x;
+        startY = y;
+    };
+
+    const stopDragging = () => {
+        isDragging = false;
+        card.style.cursor = 'grab';
+    };
+
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--x', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+        card.style.setProperty('--y', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+        if (!isDragging && !isFlipped) {
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            gsap.to(card, {
+                rotationX: (e.clientY - rect.top - centerY) / 10,
+                rotationY: (centerX - (e.clientX - rect.left)) / 10,
+                duration: 0.5, ease: 'power2.out'
+            });
+        }
+    });
+
+    card.addEventListener('mousedown', startDragging);
+    window.addEventListener('mousemove', handleDragging);
+    window.addEventListener('mouseup', stopDragging);
+    card.addEventListener('touchstart', startDragging, { passive: true });
+    window.addEventListener('touchmove', handleDragging, { passive: false });
+    window.addEventListener('touchend', stopDragging);
+
+    card.addEventListener('mouseleave', () => {
+        if (!isDragging && !isFlipped) {
+            gsap.to(card, { rotationX: 0, rotationY: 0, duration: 1.2, ease: 'elastic.out(1, 0.3)' });
+            currentRotationX = 0;
+            currentRotationY = 0;
+        }
+    });
+
+    window.flipCard = () => {
+        isFlipped = !isFlipped;
+        currentRotationY = isFlipped ? 180 : 0;
+        currentRotationX = 0;
+        gsap.to(card, { rotationY: currentRotationY, rotationX: 0, duration: 1.2, ease: 'back.out(1.2)' });
+    };
+  }
 });
