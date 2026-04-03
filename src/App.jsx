@@ -209,10 +209,22 @@ function App() {
       window.addEventListener('touchmove', (e) => { if (cardDragging) e.preventDefault(); onMove(e); }, { passive: false });
       window.addEventListener('touchend', onStop);
 
+      // Hover Effect
+      card.addEventListener('mouseenter', () => {
+        if (!cardDragging) {
+          gsap.to(card, { scale: 1.05, y: -10, duration: 0.4, ease: "power2.out" });
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        if (!cardDragging) {
+          gsap.to(card, { scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
+        }
+      });
+
       card.flip = () => {
         cardFlipped = !cardFlipped;
         rY = cardFlipped ? 180 : 0; rX = 0;
-        gsap.to(card, { rotationY: rY, rotationX: 0, duration: 1.2, ease: 'back.out(1.2)' });
+        gsap.to(card, { rotationY: rY, rotationX: 0, scale: 1, y: 0, duration: 1.2, ease: 'back.out(1.2)' });
       };
     });
 
