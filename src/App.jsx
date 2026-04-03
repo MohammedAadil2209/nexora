@@ -1,20 +1,20 @@
-import { useEffect } from 'react'
-import './index.css'
+import { useEffect } from "react";
+import "./index.css";
 
 // Internal Components
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Services from './components/Services'
-import Results from './components/Results'
-import Pricing from './components/Pricing'
-import Testimonials from './components/Testimonials'
-import FAQ from './components/FAQ'
-import StrongCTA from './components/StrongCTA'
-import Contact from './components/Contact'
-import VisitingCard from './components/VisitingCard'
-import Footer from './components/Footer'
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import Services from "./components/Services";
+import Results from "./components/Results";
+import Pricing from "./components/Pricing";
+import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
+import StrongCTA from "./components/StrongCTA";
+import Contact from "./components/Contact";
+import VisitingCard from "./components/VisitingCard";
+import Footer from "./components/Footer";
 
 function App() {
   useEffect(() => {
@@ -31,10 +31,16 @@ function App() {
       };
       document.addEventListener("mousemove", moveCursor);
 
-      const clickables = document.querySelectorAll("a, button, input, textarea, .project-card, .service-card");
+      const clickables = document.querySelectorAll(
+        "a, button, input, textarea, .project-card, .service-card",
+      );
       clickables.forEach((el) => {
-        el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
-        el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+        el.addEventListener("mouseenter", () =>
+          document.body.classList.add("cursor-hover"),
+        );
+        el.addEventListener("mouseleave", () =>
+          document.body.classList.remove("cursor-hover"),
+        );
       });
       return () => document.removeEventListener("mousemove", moveCursor);
     }
@@ -46,8 +52,11 @@ function App() {
     const navbar = document.getElementById("navbar");
 
     const handleScroll = () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
       if (progressBar) progressBar.style.width = scrolled + "%";
 
@@ -87,7 +96,9 @@ function App() {
     if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
 
-      const buttons = document.querySelectorAll(".btn, .bento-card, .project-card");
+      const buttons = document.querySelectorAll(
+        ".btn, .bento-card, .project-card",
+      );
       buttons.forEach((el) => {
         el.addEventListener("mousemove", (e) => {
           const isBtn = el.classList.contains("btn");
@@ -95,23 +106,51 @@ function App() {
           const x = e.clientX - rect.left - rect.width / 2;
           const y = e.clientY - rect.top - rect.height / 2;
           if (isBtn) {
-            gsap.to(el, { x: x * 0.4, y: y * 0.4, duration: 0.6, ease: "power3.out" });
+            gsap.to(el, {
+              x: x * 0.4,
+              y: y * 0.4,
+              duration: 0.6,
+              ease: "power3.out",
+            });
           } else {
-            gsap.to(el, { rotationY: x * 0.03, rotationX: -y * 0.03, transformPerspective: 1000, ease: "power2.out", duration: 0.5 });
+            gsap.to(el, {
+              rotationY: x * 0.03,
+              rotationX: -y * 0.03,
+              transformPerspective: 1000,
+              ease: "power2.out",
+              duration: 0.5,
+            });
           }
         });
         el.addEventListener("mouseleave", () => {
-          gsap.to(el, { x: 0, y: 0, rotationY: 0, rotationX: 0, duration: 1.2, ease: "elastic.out(1, 0.3)" });
+          gsap.to(el, {
+            x: 0,
+            y: 0,
+            rotationY: 0,
+            rotationX: 0,
+            duration: 1.2,
+            ease: "elastic.out(1, 0.3)",
+          });
         });
       });
 
-      const fadeElements = gsap.utils.toArray(".fade-in-up, .fade-in-left, .fade-in-right, .fade-in-scale").filter(el => !el.closest('.hero'));
+      const fadeElements = gsap.utils
+        .toArray(".fade-in-up, .fade-in-left, .fade-in-right, .fade-in-scale")
+        .filter((el) => !el.closest(".hero"));
       fadeElements.forEach((element) => {
         gsap.set(element, { autoAlpha: 0, y: 60, scale: 0.95 });
         ScrollTrigger.create({
           trigger: element,
           start: "top 90%",
-          onEnter: () => gsap.to(element, { autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: "power3.out", overwrite: "auto" }),
+          onEnter: () =>
+            gsap.to(element, {
+              autoAlpha: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: "power3.out",
+              overwrite: "auto",
+            }),
         });
       });
 
@@ -119,19 +158,34 @@ function App() {
       serverLayers.forEach((layer, i) => {
         gsap.to(layer, {
           z: 40 * (i + 1),
-          scrollTrigger: { trigger: ".bento-grid", start: "top bottom", end: "bottom top", scrub: 1 + (i * 0.5) },
+          scrollTrigger: {
+            trigger: ".bento-grid",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1 + i * 0.5,
+          },
         });
       });
 
       gsap.from(".mobile-grid-col-3 > div", {
         scrollTrigger: { trigger: ".mobile-grid-col-3", start: "top 85%" },
-        y: 50, rotationY: -10, autoAlpha: 0, duration: 1.2, stagger: 0.15, ease: "back.out(1.2)",
+        y: 50,
+        rotationY: -10,
+        autoAlpha: 0,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: "back.out(1.2)",
       });
 
       ScrollTrigger.create({
         trigger: ".gauge-container",
         start: "top 80%",
-        onEnter: () => gsap.fromTo(".gauge-fill", { strokeDashoffset: 125 }, { strokeDashoffset: 0, duration: 2.5, ease: "expo.out" }),
+        onEnter: () =>
+          gsap.fromTo(
+            ".gauge-fill",
+            { strokeDashoffset: 125 },
+            { strokeDashoffset: 0, duration: 2.5, ease: "expo.out" },
+          ),
       });
     }
 
@@ -141,81 +195,134 @@ function App() {
           number: { value: 40, density: { enable: true, value_area: 800 } },
           color: { value: ["#7C3AED", "#06B6D4"] },
           shape: { type: "circle" },
-          opacity: { value: 0.3, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+          opacity: {
+            value: 0.3,
+            random: true,
+            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
+          },
           size: { value: 3, random: true },
-          line_linked: { enable: true, distance: 150, color: "#e5e5e5", opacity: 0.1, width: 1 },
-          move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out", bounce: false },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#e5e5e5",
+            opacity: 0.1,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+          },
         },
         interactivity: {
           detect_on: "canvas",
-          events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
-          modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } }, push: { particles_nb: 2 } },
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" },
+            resize: true,
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 0.5 } },
+            push: { particles_nb: 2 },
+          },
         },
         retina_detect: true,
       });
     }
 
     const counters = document.querySelectorAll(".stat-count");
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const target = entry.target;
-          const endValue = parseInt(target.getAttribute("data-target"));
-          const suffix = (endValue === 10 || endValue === 20) ? "+" : (endValue === 100 ? "%" : "");
-          let startTime = null;
-          const animate = (currentTime) => {
-            if (!startTime) startTime = currentTime;
-            const progress = Math.min((currentTime - startTime) / 2000, 1);
-            target.textContent = Math.floor(progress * endValue) + suffix;
-            if (progress < 1) requestAnimationFrame(animate);
-            else target.textContent = endValue + suffix;
-          };
-          requestAnimationFrame(animate);
-          counterObserver.unobserve(target);
-        }
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(c => counterObserver.observe(c));
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            const endValue = parseInt(target.getAttribute("data-target"));
+            const suffix =
+              endValue === 10 || endValue === 20
+                ? "+"
+                : endValue === 100
+                  ? "%"
+                  : "";
+            let startTime = null;
+            const animate = (currentTime) => {
+              if (!startTime) startTime = currentTime;
+              const progress = Math.min((currentTime - startTime) / 2000, 1);
+              target.textContent = Math.floor(progress * endValue) + suffix;
+              if (progress < 1) requestAnimationFrame(animate);
+              else target.textContent = endValue + suffix;
+            };
+            requestAnimationFrame(animate);
+            counterObserver.unobserve(target);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+    counters.forEach((c) => counterObserver.observe(c));
 
     // Cards Logic
-    const cards = document.querySelectorAll('.business-card-3d');
-    cards.forEach(card => {
+    const cards = document.querySelectorAll(".business-card-3d");
+    cards.forEach((card) => {
       let cardFlipped = false;
       let cardDragging = false;
       let sX, sY;
-      let rX = 0, rY = 0;
+      let rX = 0,
+        rY = 0;
 
       const onStart = (e) => {
         cardDragging = true;
-        sX = (e.pageX || (e.touches ? e.touches[0].pageX : 0));
-        sY = (e.pageY || (e.touches ? e.touches[0].pageY : 0));
-        card.style.cursor = 'grabbing';
+        sX = e.pageX || (e.touches ? e.touches[0].pageX : 0);
+        sY = e.pageY || (e.touches ? e.touches[0].pageY : 0);
+        card.style.cursor = "grabbing";
       };
       const onMove = (e) => {
         if (!cardDragging) return;
-        const x = (e.pageX || (e.touches ? e.touches[0].pageX : 0));
-        const y = (e.pageY || (e.touches ? e.touches[0].pageY : 0));
+        const x = e.pageX || (e.touches ? e.touches[0].pageX : 0);
+        const y = e.pageY || (e.touches ? e.touches[0].pageY : 0);
         rY += (x - sX) * 0.5;
         rX -= (y - sY) * 0.5;
-        gsap.set(card, { rotationY: rY, rotationX: gsap.utils.clamp(-60, 60, rX) });
-        sX = x; sY = y;
+        gsap.set(card, {
+          rotationY: rY,
+          rotationX: gsap.utils.clamp(-60, 60, rX),
+        });
+        sX = x;
+        sY = y;
       };
-      const onStop = () => { cardDragging = false; card.style.cursor = 'grab'; };
+      const onStop = () => {
+        cardDragging = false;
+        card.style.cursor = "grab";
+      };
 
-      card.addEventListener('mousedown', onStart);
-      window.addEventListener('mousemove', onMove);
-      window.addEventListener('mouseup', onStop);
-      card.addEventListener('touchstart', onStart);
-      window.addEventListener('touchmove', (e) => { if (cardDragging) e.preventDefault(); onMove(e); }, { passive: false });
-      window.addEventListener('touchend', onStop);
+      card.addEventListener("mousedown", onStart);
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("mouseup", onStop);
+      card.addEventListener("touchstart", onStart);
+      window.addEventListener(
+        "touchmove",
+        (e) => {
+          if (cardDragging) e.preventDefault();
+          onMove(e);
+        },
+        { passive: false },
+      );
+      window.addEventListener("touchend", onStop);
 
       // Hover Effect
-      card.addEventListener('mouseenter', () => {
+      card.addEventListener("mouseenter", () => {
         if (!cardDragging) {
-          gsap.to(card, { scale: 1.05, y: -10, duration: 0.4, ease: "power2.out" });
+          gsap.to(card, {
+            scale: 1.05,
+            y: -10,
+            duration: 0.4,
+            ease: "power2.out",
+          });
         }
       });
-      card.addEventListener('mouseleave', () => {
+      card.addEventListener("mouseleave", () => {
         if (!cardDragging) {
           gsap.to(card, { scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
         }
@@ -223,12 +330,21 @@ function App() {
 
       card.flip = () => {
         cardFlipped = !cardFlipped;
-        rY = cardFlipped ? 180 : 0; rX = 0;
-        gsap.to(card, { rotationY: rY, rotationX: 0, scale: 1, y: 0, duration: 1.2, ease: 'back.out(1.2)' });
+        rY = cardFlipped ? 180 : 0;
+        rX = 0;
+        gsap.to(card, {
+          rotationY: rY,
+          rotationX: 0,
+          scale: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "back.out(1.2)",
+        });
       };
     });
 
-    window.flipCard = () => document.querySelectorAll('.business-card-3d').forEach(c => c.flip?.());
+    window.flipCard = () =>
+      document.querySelectorAll(".business-card-3d").forEach((c) => c.flip?.());
 
     // FAQ
     const faqItems = document.querySelectorAll(".faq-item");
@@ -265,7 +381,10 @@ function App() {
 
     fetch("https://formsubmit.co/ajax/nexora.devstudio@gmail.com", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({ _subject: "🔥 New Website Lead!", ...data }),
     }).catch((error) => console.log(error));
 
