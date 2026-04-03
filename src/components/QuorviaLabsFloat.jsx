@@ -2,8 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 export default function QuorviaLabsFloat() {
-  const [isHovered, setIsHovered] = useState(false); // desktop hover animation
-  const [isOpen, setIsOpen] = useState(false);       // popup details visible
+  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const touchTimer = useRef(null);
 
@@ -14,28 +14,29 @@ export default function QuorviaLabsFloat() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  /* ---------- Desktop handlers ---------- */
+  /* ---------- Desktop ---------- */
   const onMouseEnter = () => { if (!isMobile) setIsHovered(true); };
-  const onMouseLeave = () => { if (!isMobile) { setIsHovered(false); setIsOpen(false); } };
-  const onClick = () => { if (!isMobile) setIsOpen((v) => !v); };
+  // Don't auto-close on mouse-leave if popup is open
+  const onMouseLeave = () => { if (!isMobile) setIsHovered(false); };
+  // Click toggles popup; popup stays until explicitly closed
+  const onIconClick = () => { if (!isMobile) setIsOpen((v) => !v); };
 
-  /* ---------- Mobile handlers ---------- */
-  // Touch = immediately show hover effect AND open popup
+  /* ---------- Mobile ---------- */
   const onTouchStart = (e) => {
     if (!isMobile) return;
     e.preventDefault();
+    cancelAutoClose();
     setIsHovered(true);
     setIsOpen(true);
   };
-  // Lifting finger closes after a short delay (so the popup stays readable)
   const onTouchEnd = () => {
     if (!isMobile) return;
+    // Keep popup open for 4s after finger lifts, then close
     touchTimer.current = setTimeout(() => {
       setIsHovered(false);
       setIsOpen(false);
-    }, 2500); // auto-close after 2.5s
+    }, 4000);
   };
-  // If user taps again before auto-close, reset the timer
   const cancelAutoClose = () => {
     if (touchTimer.current) clearTimeout(touchTimer.current);
   };
@@ -60,22 +61,17 @@ export default function QuorviaLabsFloat() {
     >
       {/* ── Icon Button ── */}
       <motion.button
-        /* Desktop */
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        onClick={onClick}
-        /* Mobile */
+        onClick={onIconClick}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
         onTouchMove={cancelAutoClose}
-
-        /* Animation */
         animate={{
           scale: isHovered ? 1.12 : 1,
           rotate: isHovered ? 6 : 0,
         }}
         transition={{ type: "spring", stiffness: 320, damping: 18 }}
-
         aria-label="Quorvia Labs partnership"
         style={{
           position: "relative",
@@ -101,7 +97,6 @@ export default function QuorviaLabsFloat() {
           WebkitTapHighlightColor: "transparent",
         }}
       >
-        {/* Full logo visible inside the circle */}
         <img
           src="/quorvia-labs-logo.png"
           alt="Quorvia Labs"
@@ -114,8 +109,6 @@ export default function QuorviaLabsFloat() {
             display: "block",
           }}
         />
-
-        {/* Inner glow ring when hovered/open */}
         <AnimatePresence>
           {isHovered && (
             <motion.span
@@ -134,7 +127,7 @@ export default function QuorviaLabsFloat() {
         </AnimatePresence>
       </motion.button>
 
-      {/* ── Popup Card (click on desktop / touch on mobile) ── */}
+      {/* ── Popup Card ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -142,6 +135,8 @@ export default function QuorviaLabsFloat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: isMobile ? 14 : -10, scale: 0.88 }}
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
+            // Stop click propagation so clicks inside popup don't close it
+            onClick={(e) => e.stopPropagation()}
             style={{
               position: "absolute",
               top: isMobile ? "auto" : "4.4rem",
@@ -156,45 +151,64 @@ export default function QuorviaLabsFloat() {
               padding: "1rem 1.15rem",
               border: "1px solid #27272a",
               boxShadow: "0 25px 50px -12px rgba(0,0,0,0.65)",
-              pointerEvents: isMobile ? "none" : "all",
+              // Always interactive so the link can be clicked
+              pointerEvents: "all",
+              zIndex: 3001,
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.55rem" }}>
-              <span style={{ fontSize: "1rem" }}>🤝</span>
-              <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#a78bfa" }}>
-                Strategic Partner
-              </span>
+            {/* Header */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.55rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
+                <span style={{ fontSize: "1rem" }}>🤝</span>
+                <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#a78bfa" }}>
+                  Strategic Partner
+                </span>
+              </div>
+              {/* Close button */}
+              <button
+                onClick={() => { setIsOpen(false); setIsHovered(false); }}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "#71717a",
+                  cursor: "pointer",
+                  fontSize: "0.9rem",
+                  lineHeight: 1,
+                  padding: "0.1rem 0.3rem",
+                  borderRadius: "4px",
+                }}
+              >✕</button>
             </div>
-            <p style={{ fontSize: "0.78rem", lineHeight: "1.55", color: "#d4d4d8", margin: "0 0 0.85rem" }}>
+
+            {/* Body */}
+            <p style={{ fontSize: "0.78rem", lineHeight: "1.55", color: "#d4d4d8", margin: "0 0 0.9rem" }}>
               Nexora &amp; Quorvia Labs are a collaborative duo — united to deliver world-class digital experiences.
             </p>
-            {!isMobile && (
-              <a
-                href="https://quorvia-labs.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.35rem",
-                  fontSize: "0.75rem",
-                  fontWeight: 600,
-                  color: "#a78bfa",
-                  textDecoration: "none",
-                  padding: "0.4rem 0.75rem",
-                  border: "1px solid rgba(167,139,250,0.3)",
-                  borderRadius: "6px",
-                  background: "rgba(167,139,250,0.08)",
-                }}
-              >
-                Visit Quorvia Labs →
-              </a>
-            )}
-            {isMobile && (
-              <div style={{ textAlign: "center", fontSize: "0.7rem", color: "#71717a" }}>
-                tap the Q icon to visit →
-              </div>
-            )}
+
+            {/* Visit link — works on BOTH mobile & desktop */}
+            <a
+              href="https://quorvia-labs.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                color: "#a78bfa",
+                textDecoration: "none",
+                padding: "0.45rem 0.85rem",
+                border: "1px solid rgba(167,139,250,0.35)",
+                borderRadius: "8px",
+                background: "rgba(167,139,250,0.1)",
+                cursor: "pointer",
+                WebkitTapHighlightColor: "transparent",
+              }}
+            >
+              Visit Quorvia Labs →
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
