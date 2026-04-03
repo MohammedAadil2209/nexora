@@ -1,25 +1,25 @@
 /* Base & Variables */
 :root {
-  --bg-deep: #0a0a0a;
-  --bg-surface: #111111;
-  --bg-glass: rgba(17, 17, 17, 0.6);
-  --border-glass: rgba(255, 255, 255, 0.05);
+  --bg-deep: #050101;
+  --bg-surface: #0a0404;
+  --bg-glass: rgba(10, 4, 4, 0.7);
+  --border-glass: rgba(255, 255, 255, 0.04);
 
-  --primary: #7c3aed;
-  --primary-glow: rgba(124, 58, 237, 0.3);
+  --primary: #881337; /* Deep Wine */
+  --primary-glow: rgba(136, 19, 55, 0.35);
 
-  --secondary: #06b6d4;
-  --secondary-glow: rgba(6, 182, 212, 0.3);
+  --secondary: #be123c; /* Rose Wine */
+  --secondary-glow: rgba(190, 18, 60, 0.3);
 
-  --highlight: #22c55e;
-  --text-main: #e5e5e5;
-  --text-muted: #a3a3a3;
+  --highlight: #fb7185; /* Bright Rose */
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
 
   --font-heading: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-code: "JetBrains Mono", monospace;
 
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {
@@ -226,15 +226,15 @@ code {
   background: linear-gradient(
     135deg,
     var(--primary) 0%,
-    #9333ea 50%,
-    var(--secondary) 100%
+    var(--secondary) 50%,
+    var(--highlight) 100%
   );
   background-size: 200% 200%;
   animation: gradientShift 4s ease infinite;
   color: white;
   box-shadow:
-    0 4px 20px rgba(124, 58, 237, 0.35),
-    0 0 0 1px rgba(124, 58, 237, 0.15);
+    0 4px 20px var(--primary-glow),
+    0 0 0 1px var(--secondary-glow);
 }
 
 @keyframes gradientShift {
@@ -1820,4 +1820,112 @@ code {
     width: 320px;
     height: 180px;
   }
+}
+
+/* Google Trust Card */
+.google-trust-card {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.google-trust-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--highlight) !important;
+  box-shadow: 0 15px 40px rgba(34, 197, 94, 0.15);
+}
+
+.google-qr-wrapper {
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.google-qr-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.google-text h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.google-text .text-muted {
+  font-size: 0.8rem;
+  display: block;
+}
+
+/* Testimonials Animations */
+.testimonial-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--secondary);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
+              0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.testimonial-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+}
+
+.testimonial-card:hover::after {
+  animation: shine-sweep 0.8s ease-out;
+}
+
+@keyframes shine-sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.stars i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.testimonial-card:hover .stars i {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
+}
+
+.testimonial-card:hover .review-text {
+  color: #fff;
+}
+
+.client-info h4 {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .client-info h4 {
+  color: var(--secondary);
 }

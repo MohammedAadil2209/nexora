@@ -30,6 +30,17 @@ export default function Testimonials() {
               <span style={{ fontSize: '1rem', color: 'var(--highlight)' }}>AR Associate</span>
             </div>
           </div>
+          {/* Testimonial 3 */}
+          <div className="testimonial-card glass-panel fade-in-up animate-delay-2">
+            <div className="stars" style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+              <i className="fa-solid fa-star text-yellow"></i><i className="fa-solid fa-star text-yellow"></i><i className="fa-solid fa-star text-yellow"></i><i className="fa-solid fa-star text-yellow"></i><i className="fa-solid fa-star text-yellow"></i>
+            </div>
+            <p className="review-text" style={{ fontSize: '1.25rem', lineHeight: '1.8' }}>"We wanted a simple, good-looking website and that’s exactly what we got. Clean design, easy navigation, and smooth process. Really happy with it!"</p>
+            <div className="client-info">
+              <h4 style={{ fontSize: '1.25rem' }}>Management Team</h4>
+              <span style={{ fontSize: '1rem', color: 'var(--highlight)' }}>Le Bro's Cafe</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

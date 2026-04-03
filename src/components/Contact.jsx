@@ -82,6 +82,23 @@ export default function Contact({ handleFormSubmit }) {
                   </div>
                 </div>
               </div>
+              <div className="contact-method-card google-trust-card">
+                <div className="google-qr-wrapper" style={{ background: '#fff', borderRadius: '12px', padding: '10px' }}>
+                    <img 
+                      src="https://www.gstatic.com/images/branding/product/2x/googleg_96dp.png" 
+                      alt="Google Verified" 
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    />
+                </div>
+                <div className="google-text">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.2rem' }}>
+                      <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 'bold' }}>
+                        <span className="text-gradient">Verified</span> Business
+                      </h4>
+                    </div>
+                    <p className="text-muted" style={{ fontSize: '0.85rem', margin: 0 }}>Google Review Partner</p>
+                </div>
+              </div>
             </div>
           </div>
 

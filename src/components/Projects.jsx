@@ -11,8 +11,43 @@ export default function Projects() {
         </div>
 
         <div className="projects-grid">
+          {/* Project 4: Le Bro's Cafe (Featured) - MOVED TO 1st */}
+          <div className="project-card glass-panel fade-in-up featured-project" style={{ gridColumn: 'span 1', position: 'relative' }}>
+            <div className="project-badge" style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 10, background: 'rgba(255,215,0,0.2)', padding: '5px 10px', borderRadius: '20px', border: '1px solid gold', backdropFilter: 'blur(5px)', display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <i className="fa-solid fa-star" style={{ color: 'gold', fontSize: '0.85rem' }}></i>
+              <span style={{ color: 'gold', fontSize: '0.75rem', fontWeight: 'bold' }}>STARRED</span>
+            </div>
+            <div className="project-image-wrapper">
+              <div className="project-img" style={{ background: 'linear-gradient(135deg, #1e1e1e 0%, #000 100%)' }}>
+                <div className="overlay-brand" style={{ color: '#fff', letterSpacing: '4px' }}>Le Bro's Cafe</div>
+              </div>
+              <div className="project-overlay">
+                <a href="https://www.lebroscafe.com/" target="_blank" rel="noopener" className="btn btn-primary btn-sm"
+                  >View Live <i className="fa-solid fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div className="project-info">
+              <div className="project-tags">
+                <span className="tag">#Restaurant</span>
+                <span className="tag">#FullStack</span>
+              </div>
+              <h3 className="project-title">Le Bro's Cafe</h3>
+              <p className="project-desc">
+                A highly interactive, cinematic growth ecosystem for a modern cafe, optimizing bookings and digital presence.
+              </p>
+              <div className="code-snippet-small">
+                <code
+                  ><span className="purple">const</span>
+                  <span className="cyan"> studio</span> =
+                  <span className="green"> 'growth'</span>;</code
+                >
+              </div>
+            </div>
+          </div>
+
           {/* Project 1 */}
-          <div className="project-card glass-panel fade-in-up">
+          <div className="project-card glass-panel fade-in-up animate-delay-1">
             <div className="project-image-wrapper">
               <div className="project-img placeholder-1">
                 <div className="overlay-brand">The Long Story</div>
@@ -44,7 +79,7 @@ export default function Projects() {
           </div>
 
           {/* Project 2 */}
-          <div className="project-card glass-panel fade-in-up animate-delay-1">
+          <div className="project-card glass-panel fade-in-up animate-delay-2">
             <div className="project-image-wrapper">
               <div className="project-img placeholder-2">
                 <div className="overlay-brand text-dark">The Space Hangout</div>
@@ -76,7 +111,7 @@ export default function Projects() {
           </div>
 
           {/* Project 3 */}
-          <div className="project-card glass-panel fade-in-up animate-delay-2">
+          <div className="project-card glass-panel fade-in-up animate-delay-3">
             <div className="project-image-wrapper">
               <div className="project-img" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
                 <div className="overlay-brand" style={{ color: '#60a5fa', fontFamily: 'var(--font-heading)', fontSize: '1.8rem', letterSpacing: '2px' }}>AR Associate</div>
