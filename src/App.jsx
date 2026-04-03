@@ -15,6 +15,7 @@ import StrongCTA from "./components/StrongCTA";
 import Contact from "./components/Contact";
 import VisitingCard from "./components/VisitingCard";
 import Footer from "./components/Footer";
+import QuorviaLabsFloat from "./components/QuorviaLabsFloat";
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -208,16 +209,6 @@ function App() {
         });
       });
 
-      gsap.from(".mobile-grid-col-3 > div", {
-        scrollTrigger: { trigger: ".mobile-grid-col-3", start: "top 85%" },
-        y: 50,
-        rotationY: -10,
-        autoAlpha: 0,
-        duration: 1.2,
-        stagger: 0.15,
-        ease: "back.out(1.2)",
-      });
-
       ScrollTrigger.create({
         trigger: ".gauge-container",
         start: "top 80%",
@@ -403,6 +394,7 @@ function App() {
       <div className="scroll-progress-bar"></div>
 
       <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <QuorviaLabsFloat />
       <Hero />
       <About />
       <Projects />

@@ -2,8 +2,8 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container text-center">
-        <a href="#" className="logo d-inline-block">
-          <span className="code-bracket">&lt;</span>Nexora<span className="code-bracket">/&gt;</span>
+        <a href="#" className="logo">
+          <img src="/logo.png" alt="Nexora Logo" />
         </a>
         <p className="mt-3 text-muted">A developer who understands business + design.</p>
         <div className="social-links mt-4">

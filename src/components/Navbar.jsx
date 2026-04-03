@@ -21,46 +21,45 @@ export default function Navbar({ theme, toggleTheme }) {
   return (
     <nav className="navbar" id="navbar">
       <div className="nav-container">
-        <a href="#" className="logo" onClick={closeMenu}>
-          <span className="code-bracket">&lt;</span>
-          Nexora
-          <span className="code-bracket">/&gt;</span>
-        </a>
+        <div className="nav-logo-area">
+           <a href="#" className="logo" onClick={closeMenu}>
+             <img src="/logo.png" alt="Nexora Logo" />
+           </a>
+        </div>
 
-        <div className="nav-actions-wrapper">
-           <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-             <li className="nav-item"><a href="#about" className="nav-link" onClick={closeMenu}>About</a></li>
-             <li className="nav-item"><a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a></li>
-             <li className="nav-item"><a href="#services" className="nav-link" onClick={closeMenu}>Services</a></li>
-             <li className="nav-item"><a href="#pricing" className="nav-link" onClick={closeMenu}>Pricing</a></li>
-             <li className="nav-item"><a href="#visiting-card" className="nav-link" onClick={closeMenu}>ID Card</a></li>
-             <li className="nav-item"><a href="#contact" className="nav-link btn-contact" onClick={closeMenu}>Consultation</a></li>
-             <li className="nav-item theme-switch-nav-item">
-                <div className="theme-switch-wrapper">
-                    <input 
-                      type="checkbox" 
-                      id="theme-checkbox" 
-                      className="theme-checkbox" 
-                      onChange={toggleTheme} 
-                      checked={theme === 'light'}
-                    />
-                    <label htmlFor="theme-checkbox" className="theme-switch-label">
-                      <div className="switch-gloss"></div>
-                      <i className="fa-solid fa-moon moon-icon"></i>
-                      <i className="fa-solid fa-sun sun-icon"></i>
-                      <div className="switch-handle">
-                        <div className="handle-gloss"></div>
-                      </div>
-                    </label>
-                  </div>
-             </li>
-           </ul>
+        <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
+           <li className="nav-item"><a href="#about" className="nav-link" onClick={closeMenu}>About</a></li>
+           <li className="nav-item"><a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a></li>
+           <li className="nav-item"><a href="#services" className="nav-link" onClick={closeMenu}>Services</a></li>
+           <li className="nav-item"><a href="#pricing" className="nav-link" onClick={closeMenu}>Pricing</a></li>
+           <li className="nav-item"><a href="#visiting-card" className="nav-link" onClick={closeMenu}>ID Card</a></li>
+           <li className="nav-item"><a href="#contact" className="nav-link btn-contact" onClick={closeMenu}>Consultation</a></li>
+        </ul>
 
+        <div className="nav-actions-area">
+           <div className="theme-switch-wrapper desktop-theme-switch">
+              <input 
+                type="checkbox" 
+                id="theme-checkbox" 
+                className="theme-checkbox" 
+                onChange={toggleTheme} 
+                checked={theme === 'light'}
+              />
+              <label htmlFor="theme-checkbox" className="theme-switch-label">
+                <div className="switch-gloss"></div>
+                <i className="fa-solid fa-moon moon-icon"></i>
+                <i className="fa-solid fa-sun sun-icon"></i>
+                <div className="switch-handle">
+                  <div className="handle-gloss"></div>
+                </div>
+              </label>
+           </div>
+           
            <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+             <span></span>
+             <span></span>
+             <span></span>
+           </div>
         </div>
       </div>
     </nav>
