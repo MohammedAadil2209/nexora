@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./index.css";
 
 // Internal Components
@@ -17,6 +17,18 @@ import VisitingCard from "./components/VisitingCard";
 import Footer from "./components/Footer";
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('nexora-theme') || 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('nexora-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
   useEffect(() => {
     // 1. Custom Cursor
     const cursor = document.querySelector(".cursor-glow");
@@ -47,6 +59,54 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (typeof particlesJS !== "undefined") {
+      const pConfig = {
+        particles: {
+          number: { value: 30, density: { enable: true, value_area: 800 } },
+          color: { value: theme === 'dark' ? ["#881337", "#be123c"] : ["#881337", "#be123c"] },
+          shape: { type: "circle" },
+          opacity: {
+            value: theme === 'dark' ? 0.3 : 0.4,
+            random: true,
+            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
+          },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: theme === 'dark' ? "#e5e5e5" : "#881337",
+            opacity: theme === 'dark' ? 0.1 : 0.18,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 0.8,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" },
+            resize: true,
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 0.5 } },
+            push: { particles_nb: 2 },
+          },
+        },
+        retina_detect: true,
+      };
+      particlesJS("particles-js", pConfig);
+    }
+  }, [theme]);
+
+  useEffect(() => {
     // 2. Scroll Progress & Navbar
     const progressBar = document.querySelector(".scroll-progress-bar");
     const navbar = document.getElementById("navbar");
@@ -71,25 +131,6 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // 4. Mobile Menu
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
-    const links = document.querySelectorAll(".nav-link");
-
-    const toggleMenu = () => {
-      hamburger?.classList.toggle("active");
-      navLinks?.classList.toggle("active");
-    };
-
-    hamburger?.addEventListener("click", toggleMenu);
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        hamburger?.classList.remove("active");
-        navLinks?.classList.remove("active");
-      });
-    });
-  }, []);
 
   useEffect(() => {
     // 5. GSAP Animations
@@ -189,50 +230,6 @@ function App() {
       });
     }
 
-    if (typeof particlesJS !== "undefined") {
-      particlesJS("particles-js", {
-        particles: {
-          number: { value: 40, density: { enable: true, value_area: 800 } },
-          color: { value: ["#7C3AED", "#06B6D4"] },
-          shape: { type: "circle" },
-          opacity: {
-            value: 0.3,
-            random: true,
-            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
-          },
-          size: { value: 3, random: true },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#e5e5e5",
-            opacity: 0.1,
-            width: 1,
-          },
-          move: {
-            enable: true,
-            speed: 1,
-            direction: "none",
-            random: true,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-          },
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "grab" },
-            onclick: { enable: true, mode: "push" },
-            resize: true,
-          },
-          modes: {
-            grab: { distance: 140, line_linked: { opacity: 0.5 } },
-            push: { particles_nb: 2 },
-          },
-        },
-        retina_detect: true,
-      });
-    }
 
     const counters = document.querySelectorAll(".stat-count");
     const counterObserver = new IntersectionObserver(
@@ -405,7 +402,7 @@ function App() {
       <div className="cursor-glow"></div>
       <div className="scroll-progress-bar"></div>
 
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero />
       <About />
       <Projects />

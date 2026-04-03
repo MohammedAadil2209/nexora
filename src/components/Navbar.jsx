@@ -1,48 +1,66 @@
-export default function Navbar() {
+import { useState } from "react";
+
+export default function Navbar({ theme, toggleTheme }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    // If we open, we prevent scrolling
+    if(!isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <nav className="navbar" id="navbar">
       <div className="nav-container">
-        <a href="#" className="logo">
+        <a href="#" className="logo" onClick={closeMenu}>
           <span className="code-bracket">&lt;</span>
           Nexora
           <span className="code-bracket">/&gt;</span>
         </a>
-        <ul className="nav-links">
-          <li>
-            <a href="#about" className="nav-link">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className="nav-link">
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#services" className="nav-link">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#pricing" className="nav-link">
-              Pricing
-            </a>
-          </li>
-          <li>
-            <a href="#visiting-card" className="nav-link">
-              ID Card
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="nav-link btn-contact">
-              Consultation
-            </a>
-          </li>
-        </ul>
-        <div className="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+
+        <div className="nav-actions-wrapper">
+           <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
+             <li className="nav-item"><a href="#about" className="nav-link" onClick={closeMenu}>About</a></li>
+             <li className="nav-item"><a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a></li>
+             <li className="nav-item"><a href="#services" className="nav-link" onClick={closeMenu}>Services</a></li>
+             <li className="nav-item"><a href="#pricing" className="nav-link" onClick={closeMenu}>Pricing</a></li>
+             <li className="nav-item"><a href="#visiting-card" className="nav-link" onClick={closeMenu}>ID Card</a></li>
+             <li className="nav-item"><a href="#contact" className="nav-link btn-contact" onClick={closeMenu}>Consultation</a></li>
+             <li className="nav-item theme-switch-nav-item">
+                <div className="theme-switch-wrapper">
+                    <input 
+                      type="checkbox" 
+                      id="theme-checkbox" 
+                      className="theme-checkbox" 
+                      onChange={toggleTheme} 
+                      checked={theme === 'light'}
+                    />
+                    <label htmlFor="theme-checkbox" className="theme-switch-label">
+                      <div className="switch-gloss"></div>
+                      <i className="fa-solid fa-moon moon-icon"></i>
+                      <i className="fa-solid fa-sun sun-icon"></i>
+                      <div className="switch-handle">
+                        <div className="handle-gloss"></div>
+                      </div>
+                    </label>
+                  </div>
+             </li>
+           </ul>
+
+           <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </nav>
