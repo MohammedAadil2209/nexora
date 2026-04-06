@@ -16,11 +16,21 @@ import Contact from "./components/Contact";
 import VisitingCard from "./components/VisitingCard";
 import Footer from "./components/Footer";
 import QuorviaLabsFloat from "./components/QuorviaLabsFloat";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(() => {
+    // Only show loading once per browser session
+    return !sessionStorage.getItem('nexora-loaded');
+  });
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('nexora-theme') || 'dark';
   });
+
+  const handleLoadComplete = () => {
+    sessionStorage.setItem('nexora-loaded', '1');
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -390,6 +400,8 @@ function App() {
 
   return (
     <div className="app-root">
+      {isLoading && <LoadingScreen onComplete={handleLoadComplete} />}
+
       <div className="cursor-glow"></div>
       <div className="scroll-progress-bar"></div>
 
