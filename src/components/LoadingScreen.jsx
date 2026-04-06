@@ -117,7 +117,7 @@ export default function LoadingScreen({ onComplete }) {
                 }}
               />
               <img
-                src="/logo.png"
+                src="/NEXORA.svg"
                 alt="Nexora"
                 style={{
                   height: "100px",

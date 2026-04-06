@@ -131,9 +131,9 @@ export default function VisitingCard() {
                       boxShadow: "0 0 15px rgba(255,255,255,0.1)",
                     }}
                   >
-                    <a href="https://mohammedaadil-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://harsithchandrasekaran.vercel.app/" target="_blank" rel="noopener noreferrer">
                       <img
-                        src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://mohammedaadil-portfolio.vercel.app/"
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://harsithchandrasekaran.vercel.app/"
                         alt="QR Code"
                         style={{ width: "100%", height: "100%", cursor: "pointer" }}
                       />
@@ -147,9 +147,9 @@ export default function VisitingCard() {
                     className="card-qr"
                     style={{ width: "150px", height: "150px" }}
                   >
-                    <a href="https://mohammedaadil-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://harsithchandrasekaran.vercel.app/" target="_blank" rel="noopener noreferrer">
                       <img
-                        src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://mohammedaadil-portfolio.vercel.app/"
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://harsithchandrasekaran.vercel.app/"
                         alt="QR Code"
                         style={{ cursor: "pointer" }}
                       />

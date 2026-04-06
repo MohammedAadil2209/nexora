@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container text-center">
         <a href="#" className="logo">
-          <img src="/logo.png" alt="Nexora Logo" />
+          <img src="/NEXORA.svg" alt="Nexora Logo" />
         </a>
         <p className="mt-3 text-muted">A developer who understands business + design.</p>
         <div className="social-links mt-4">
