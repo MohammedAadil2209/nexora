@@ -165,8 +165,9 @@ export default function Contact({ handleFormSubmit }) {
                   name="type"
                   className="form-control select-dark"
                   required
+                  defaultValue=""
                 >
-                  <option value="" disabled selected>
+                  <option value="" disabled>
                     Select Project Type
                   </option>
                   <option value="Starter">Starter (₹3,999)</option>

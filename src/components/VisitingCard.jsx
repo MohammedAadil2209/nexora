@@ -30,9 +30,8 @@ export default function VisitingCard() {
                     alignItems: "center",
                   }}
                 >
-                  <div className="card-logo">
-                    <span style={{ color: "var(--primary)" }}>&lt;</span>Nexora
-                    <span style={{ color: "var(--primary)" }}>/&gt;</span>
+                  <div className="card-logo" style={{ display: 'flex', alignItems: 'center' }}>
+                    <img src="/NEXORA.svg" alt="Nexora Logo" style={{ height: "100px", width: "120px", objectFit: "contain" }} />
                   </div>
                   <div className="card-chip"></div>
                 </div>
@@ -100,10 +99,8 @@ export default function VisitingCard() {
                     alignItems: "center",
                   }}
                 >
-                  <div className="card-logo">
-                    <span style={{ color: "var(--primary)" }}>&lt;</span>
-                    Nexora
-                    <span style={{ color: "var(--primary)" }}>/&gt;</span>
+                  <div className="card-logo" style={{ display: 'flex', alignItems: 'center' }}>
+                    <img src="/NEXORA.svg" alt="Nexora Logo" style={{ height: "100px", width: "120px", objectFit: "contain" }} />
                   </div>
                   <div className="card-chip"></div>
                 </div>

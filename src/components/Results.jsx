@@ -480,6 +480,7 @@ export default function Results() {
                     fontSize: "0.85rem",
                     fontWeight: "bold",
                     fontFamily: "var(--font-code)",
+                    flexWrap: "wrap"
                   }}
                 >
                   <span style={{ color: "var(--text-main)" }}>

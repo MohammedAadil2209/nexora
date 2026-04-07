@@ -18,9 +18,9 @@ export default function Navbar({ theme, toggleTheme }) {
       const sections = navItems.map(item => document.querySelector(item.href)).filter(Boolean);
       let current = "";
       sections.forEach(section => {
-        const sectionTop = section.offsetTop;
+        const rect = section.getBoundingClientRect();
         // Check if user scrolled to the section
-        if (window.scrollY >= sectionTop - 250) {
+        if (rect.top <= 250) {
           current = section.getAttribute("id");
         }
       });
@@ -28,7 +28,7 @@ export default function Navbar({ theme, toggleTheme }) {
       if (current) {
         const match = navItems.find(item => item.href === `#${current}`);
         if (match) setActiveTab(match.name);
-      } else if (window.scrollY < 200) {
+      } else {
         setActiveTab(""); // reset at top
       }
     };
@@ -63,9 +63,6 @@ export default function Navbar({ theme, toggleTheme }) {
         </div>
 
         <div className={`nav-center-pill ${isOpen ? 'active' : ''}`}>
-          <div className="mobile-menu-header" onClick={closeMenu}>
-            <i className="fa-solid fa-arrow-right"></i> Close Menu
-          </div>
           <ul className="nav-links-pill">
              {navItems.map((item) => (
                <li key={item.name} className="nav-pill-item">

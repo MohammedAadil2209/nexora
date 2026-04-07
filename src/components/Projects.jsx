@@ -82,7 +82,7 @@ export default function Projects() {
           <div className="project-card glass-panel fade-in-up animate-delay-2">
             <div className="project-image-wrapper">
               <div className="project-img placeholder-2">
-                <div className="overlay-brand text-dark">The Space Hangout</div>
+                <div className="overlay-brand">The Space Hangout</div>
               </div>
               <div className="project-overlay">
                 <a href="https://space-restaurant.vercel.app/" target="_blank" rel="noopener" className="btn btn-primary btn-sm"
@@ -113,8 +113,8 @@ export default function Projects() {
           {/* Project 3 */}
           <div className="project-card glass-panel fade-in-up animate-delay-3">
             <div className="project-image-wrapper">
-              <div className="project-img" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
-                <div className="overlay-brand" style={{ color: '#60a5fa', fontFamily: 'var(--font-heading)', fontSize: '1.8rem', letterSpacing: '2px' }}>AR Associate</div>
+              <div className="project-img placeholder-3">
+                <div className="overlay-brand">AR Associate</div>
               </div>
               <div className="project-overlay">
                 <a href="https://arassociate.vercel.app/" target="_blank" rel="noopener" className="btn btn-primary btn-sm"

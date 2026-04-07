@@ -49,9 +49,9 @@ export default function QuorviaLabsFloat() {
       transition={{ delay: 0.8, type: "spring", bounce: 0.4 }}
       style={{
         position: "fixed",
-        top: isMobile ? "auto" : "5.5rem",
-        bottom: isMobile ? "1.8rem" : "auto",
-        right: isMobile ? "1.2rem" : "1.8rem",
+        top: "auto",
+        bottom: isMobile ? "1.8rem" : "2rem",
+        right: isMobile ? "1.2rem" : "2rem",
         zIndex: 3000,
         display: "flex",
         flexDirection: "column",
@@ -139,15 +139,14 @@ export default function QuorviaLabsFloat() {
             onClick={(e) => e.stopPropagation()}
             style={{
               position: "absolute",
-              top: isMobile ? "auto" : "4.4rem",
-              bottom: isMobile ? "3.6rem" : "auto",
+              top: "auto",
+              bottom: isMobile ? "3.6rem" : "4.4rem",
               right: 0,
               width: "220px",
               backgroundColor: "#18181b",
               color: "#fff",
               borderRadius: "1.2rem",
-              borderTopRightRadius: isMobile ? "1.2rem" : "0.3rem",
-              borderBottomRightRadius: isMobile ? "0.3rem" : "1.2rem",
+              borderBottomRightRadius: "0.3rem",
               padding: "1rem 1.15rem",
               border: "1px solid #27272a",
               boxShadow: "0 25px 50px -12px rgba(0,0,0,0.65)",
