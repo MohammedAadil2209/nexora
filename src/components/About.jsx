@@ -60,7 +60,7 @@ export default function About() {
             </div>
             <div className="stat-card glass-panel" style={{ gridColumn: 'span 2' }}>
               <h3 className="stat-number" style={{ color: 'var(--highlight)' }}>∞</h3>
-              <p className="stat-label">Lines of Code Written..</p>
+              <p className="stat-label">Lines of Code Written</p>
             </div>
           </div>
         </div>
